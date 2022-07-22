@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 
 public class GoogleSearch {
 	private final String HOST ="https://www.google.com/";
-
 	
 	@Before
 	public void openHost() {
@@ -17,12 +16,22 @@ public class GoogleSearch {
 	
 	@Test
 	public void CookiesHandler() {
+		$("button#vc3jof.neDYw.tHlp8d").click();
+		$("li.Ge0Aub").isSelected();
+		sleep(500);
 		$("#L2AGLb.tHlp8d").click();
+		sleep(1000);
 	}
 	
 	@Test
-	public void SearchBox() {
-		$("input.gLFyf.gsfi").setValue("Abraham Sylvester");
+	public void GoogleSearchBox() {
+		$("input[name=q]").click();
+		$("input[name=q]").setValue("Selenide");
+		sleep(1000);
+		$("input[name=q]").pressEnter();
+		sleep(500);
+		$("div.hdtb-mitem").doubleClick();
+		sleep(1000);
 	}
 	
 	@After
